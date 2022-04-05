@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProfileController!{% endblock %}
+
+{% block content %}
+        <h1 style="text-align: center"> Gestion de l'Utilisateur </h1>
+        <p>Nom d'utilisateur : {{ app.user.username }}</p>
+        <p>Email : {{ app.user.email }}</p>
+        <p>Roles : {% for i in app.user.roles %}{{ i }}{% endfor %}</p>
+        <a href="{{ path('app_profile_show', {'id': app.user.id}) }}">Show</a>
+        <a href="{{ path('app_profile_edit', {'id': app.user.id}) }}">edit</a>
+{% endblock %}

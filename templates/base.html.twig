@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    {% block title %}<title>Crowdin</title>{% endblock %}
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet"/>
+    <noscript>
+        <link href="{{ asset('css/noscript.css') }}" rel="stylesheet"/>
+    </noscript>
+    {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
+    {# {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
+
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+    {% endblock %}
+    #}
+</head>
+<body class="is-preload">
+
+<!-- Header -->
+<header id="header" class="alt">
+    <h1><a href="#">Solid State</a></h1>
+    <nav>
+        <a href="#menu">Menu</a>
+    </nav>
+</header>
+
+<!-- Menu -->
+<nav id="menu">
+    <div class="inner">
+        <h2>Menu</h2>
+        <ul class="links">
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <li><a href="{{ path('app_projets_index') }}">Liste des traductions</a></li>
+                <li><a href="{{ path('app_profile') }}">Profile</a></li>
+                <li><a href="{{ path('app_logout') }}">Logout</a></li>
+            {% else %}
+                <li><a href="{{ path('app_login') }}">Log In</a></li>
+                <li><a href="{{ path('app_register') }}">Sign Up</a></li>
+            {% endif %}
+
+        </ul>
+        <a href="#" class="close">Close</a>
+    </div>
+</nav>
+
+<!-- Banner -->
+<section id="banner" style="margin-bottom: -10%">
+</section>
+
+{% block body %}
+{% endblock %}
+<div id="footer">
+    <div class="inner" >
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+<!-- Footer -->
+<section id="footer">
+
+    <div class="inner">
+        <ul class="copyright">
+            <li>&copy; Untitled Inc. All rights reserved.</li>
+            <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+        </ul>
+    </div>
+</section>
+</body>
+
+<!-- Scripts -->
+<script src="{{ asset('js/jquery.min.js') }}"></script>
+<script src="{{ asset('js/jquery.scrolly.min.js') }}"></script>
+<script src="{{ asset('js/jquery.scrollex.min.js') }}"></script>
+<script src="{{ asset('js/browser.min.js') }}"></script>
+<script src="{{ asset('js/breakpoints.min.js') }}"></script>
+<script src="{{ asset('js/util.js') }}"></script>
+<script src="{{ asset('js/main.js') }}"></script>
+</html>
